@@ -65,18 +65,18 @@ export function PostCard({ post, index }: PostCardProps) {
       transition={{ delay: index * 0.1 }}
       className="bg-[rgba(0,0,0,0.03)] rounded-[21px] p-[7px]"
     >
-      <div className='bg-white rounded-[18px] p-[22px] pt-[13px] pl-[13px] border border-black/10 shadow-[0_4px_9px_rgba(0,0,0,0.05)]'>
+      <div className='bg-white border border-black/10 shadow-[0_4px_9px_rgba(0,0,0,0.05)] rounded-[18px] p-[22px] pt-[13px] pl-[13px]'>
         <div className="flex items-start gap-[10px]">
           <div className="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-[7px]">
             <span className="text-sm font-medium text-gray-600">
-              {post.author.username.charAt(0).toUpperCase()}
+              {post.author.emailOrUsername.charAt(0).toUpperCase()}
             </span>
           </div>
           
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
               <div>
-                <h3 className="font-bold text-black text-[13px]">{post.author.username}</h3>
+                <h3 className="font-bold text-black text-[13px]">{post.author.name || post.author.emailOrUsername}</h3>
                 <p className="text-[12px] text-black/40">{formatTimeAgo(post.timestamp)}</p>
               </div>
             </div>

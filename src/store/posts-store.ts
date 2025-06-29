@@ -20,8 +20,8 @@ const INITIAL_POSTS: Post[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: {
       id: 'theresa',
-      email: 'theresa@example.com',
-      username: 'Theresa Webb',
+      emailOrUsername: 'theresa@example.com',
+      name: 'Theresa Webb',
     },
     timestamp: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
     emoji: '🤔',
@@ -31,8 +31,8 @@ const INITIAL_POSTS: Post[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: {
       id: 'john',
-      email: 'john@example.com',
-      username: 'John Doe',
+      emailOrUsername: 'john@example.com',
+      name: 'John Doe',
     },
     timestamp: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
     emoji: '👍',
@@ -42,8 +42,8 @@ const INITIAL_POSTS: Post[] = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: {
       id: 'jane',
-      email: 'jane@example.com',
-      username: 'Jane Doe',
+      emailOrUsername: 'jane@example.com',
+      name: 'Jane Doe',
     },
     timestamp: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
     emoji: '💀',

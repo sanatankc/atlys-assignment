@@ -84,16 +84,17 @@ const Icon = ({ name, className = "" }: { name: string; className?: string }) =>
       </svg>
     ),
     'send': (
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clipPath="url(#clip0_1_373)">
-          <path d="M8.25 9.75L8.53457 10.4899C9.5894 13.2326 10.1168 14.6039 10.825 14.9489C11.4376 15.2472 12.1598 15.2132 12.7416 14.8586C13.4143 14.4486 13.8104 13.0338 14.6028 10.2041L15.716 6.22824C16.2177 4.43672 16.4685 3.54096 16.2357 2.92628C16.0327 2.39035 15.6096 1.96724 15.0737 1.76427C14.459 1.53147 13.5633 1.78228 11.7718 2.28391L7.79584 3.39716C4.96617 4.18947 3.55133 4.58563 3.14136 5.25828C2.78678 5.84005 2.75275 6.56231 3.05106 7.17484C3.39597 7.88306 4.76729 8.41049 7.50993 9.46536L8.25 9.75ZM8.25 9.75L10.125 7.875" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_1_292)">
+          <path d="M6.55196 11.25C6.22572 11.25 6.0626 11.25 5.91568 11.2036C5.78564 11.1626 5.66538 11.0954 5.56227 11.0061C5.44577 10.9053 5.36028 10.7664 5.1893 10.4886L4.33542 9.10099C2.1403 5.53393 1.04274 3.7504 1.26983 2.75441C1.46586 1.89469 2.10028 1.20182 2.93944 0.930999C3.91161 0.617244 5.78471 1.55379 9.5309 3.42689L19.5217 8.42228C21.8247 9.5738 22.9762 10.1496 23.3458 10.9287C23.6673 11.6067 23.6673 12.3933 23.3458 13.0713C22.9762 13.8504 21.8247 14.4262 19.5217 15.5777L9.5309 20.5731C5.78471 22.4462 3.91161 23.3827 2.93944 23.069C2.10028 22.7982 1.46586 22.1053 1.26983 21.2456C1.04274 20.2496 2.1403 18.466 4.33542 14.899L5.18929 13.5114C5.36027 13.2336 5.44576 13.0947 5.56226 12.9939C5.66537 12.9046 5.78563 12.8374 5.91566 12.7964C6.06259 12.75 6.22571 12.75 6.55194 12.75L11.25 12.75C11.6642 12.75 12 12.4142 12 12C12 11.5858 11.6642 11.25 11.25 11.25L6.55196 11.25Z" fill="#5057EA"/>
         </g>
         <defs>
-          <clipPath id="clip0_1_373">
-            <rect width="18" height="18" fill="white"/>
+          <clipPath id="clip0_1_292">
+            <rect width="24" height="24" fill="white"/>
           </clipPath>
         </defs>
       </svg>
+ 
     ),
   };
 
@@ -144,7 +145,7 @@ export function PostEditor() {
   const onSubmit = async (data: PostForm) => {
     if (!user) return;
     
-    await addPost(data.content, selectedEmoji);
+    addPost(data.content, selectedEmoji);
     reset();
     setSelectedEmoji(null);
   };
@@ -154,200 +155,210 @@ export function PostEditor() {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Format toolbar */}
-        <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-          <div className="flex items-center gap-3">
-            {/* Paragraph dropdown */}
-            <div className="relative">
-              <select className="appearance-none px-3 py-2 pr-8 text-sm border border-gray-200 rounded-lg bg-white text-gray-700 cursor-pointer focus:outline-none focus:border-gray-300 min-w-[100px]">
-                <option>Paragraph</option>
-              </select>
-              <Icon name="chevron-down" className="absolute right-2.5 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none w-3 h-3" />
-            </div>
-            
-            {/* Text formatting buttons */}
-            <div className="flex items-center gap-0.5">
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Bold"
-              >
-                <Icon name="text-bold" className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Italic"
-              >
-                <Icon name="text-italic" className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Underline"
-              >
-                <Icon name="text-underline" className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            
-            {/* List buttons */}
-            <div className="flex items-center gap-0.5">
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Bullet List"
-              >
-                <Icon name="list-unordered" className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Numbered List"
-              >
-                <Icon name="list-ordered" className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            
-            {/* Quote and code buttons */}
-            <div className="flex items-center gap-0.5">
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Quote"
-              >
-                <Icon name="quotes" className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => requireAuth(handleNotImplemented)}
-                className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-                title="Code"
-              >
-                <Icon name="script" className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-          
-          {/* Trash button */}
-          <button
-            type="button"
-            onClick={() => requireAuth(handleNotImplemented)}
-            className="p-2 text-red-500 bg-red-50 hover:bg-red-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
-            title="Delete"
-          >
-            <Icon name="trash" className="w-4 h-4" />
-          </button>
-        </div>
+    <div className="bg-[rgba(0,0,0,0.03)] rounded-[21px] p-[7px]">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Format toolbar */}
+          <div className="flex items-center justify-between pb-4 border-gray-100 p-[9px]">
+            <div className="flex items-center p-1 h-full bg-[rgba(0,0,0,0.03)] rounded-[10px]">
+              {/* Paragraph dropdown */}
+              <div className="relative mr-[25px]">
+                <select className="appearance-none px-3 py-2 pr-8 text-sm border border-gray-200 rounded-lg bg-white text-gray-700 cursor-pointer focus:outline-none focus:border-gray-300 min-w-[100px]">
+                  <option>Paragraph</option>
+                </select>
+                <Icon name="chevron-down" className="absolute right-2.5 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none w-3 h-3" />
+              </div>
+              
+              {/* Text formatting buttons */}
+              <div className="flex items-center gap-0.5">
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className={cn(
+                    "p-2 text-gray-700 rounded-[10px] transition-colors w-8 h-8 flex items-center justify-center",
+                    // selected styles
+                    "bg-white hover:bg-gray-100 shadow-[0px_1px_7px_rgba(0,0,0,0.1)]"
+                  )}
+                  title="Bold"
+                >
+                  <Icon name="text-bold" className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Italic"
+                >
+                  <Icon name="text-italic" className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Underline"
+                >
+                  <Icon name="text-underline" className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
-        {/* Text area */}
-        <div className="relative py-2">
-          <div className="flex items-start gap-4">
-            {user ? (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <button
-                    type="button"
-                    className="mt-2 hover:scale-110 transition-transform cursor-pointer p-2"
-                  >
-                    {selectedEmoji ? (
-                      <span className="text-2xl">{selectedEmoji}</span>
-                    ) : (
-                      <Icon name="emotion-smile" className="w-6 h-6 text-gray-500" />
-                    )}
-                  </button>
-                </PopoverTrigger>
-                <PopoverContent className="w-40 p-3 bg-white border border-gray-200 shadow-lg" align="start">
-                  <div className="grid grid-cols-3 gap-2">
-                    {EMOJI_OPTIONS.map((emoji) => (
-                      <button
-                        key={emoji}
-                        type="button"
-                        onClick={() => setSelectedEmoji(emoji)}
-                        className={cn(
-                          'w-10 h-10 text-lg hover:bg-gray-100 rounded-md transition-all duration-200 flex items-center justify-center',
-                          selectedEmoji === emoji && 'bg-blue-100 border border-blue-300 shadow-sm'
-                        )}
-                      >
-                        {emoji}
-                      </button>
-                    ))}
-                  </div>
-                </PopoverContent>
-              </Popover>
-            ) : (
-              <button
-                type="button"
-                className="mt-2 hover:scale-110 transition-transform cursor-pointer p-2"
-                onClick={() => requireAuth(() => {})}
-              >
-                <Icon name="emotion-smile" className="w-6 h-6 text-gray-500" />
-              </button>
-            )}
-            <div className="flex-1">
-              <textarea
-                {...register('content')}
-                placeholder="How are you feeling today?"
-                className="w-full min-h-[100px] p-0 border-none resize-none placeholder-gray-400 text-gray-700 focus:outline-none text-base leading-relaxed"
-                onClick={() => requireAuth(() => {})}
-              />
-              {errors.content && (
-                <p className="text-sm text-red-600 mt-1">{errors.content.message}</p>
+              <div className='w-[1px] h-[32px] mx-2 bg-black/10'></div>
+
+              {/* List buttons */}
+              <div className="flex items-center gap-0.5">
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Bullet List"
+                >
+                  <Icon name="list-unordered" className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Numbered List"
+                >
+                  <Icon name="list-ordered" className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className='w-[1px] h-[32px] mx-2 bg-black/10'></div>
+              
+              {/* Quote and code buttons */}
+              <div className="flex items-center gap-0.5">
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Quote"
+                >
+                  <Icon name="quotes" className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => requireAuth(handleNotImplemented)}
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-md transition-colors w-8 h-8 flex items-center justify-center"
+                  title="Code"
+                >
+                  <Icon name="script" className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Trash button */}
+            <button
+              type="button"
+              onClick={() => requireAuth(handleNotImplemented)}
+              className="text-red-500 bg-red-50 hover:bg-red-100 rounded-[10px] transition-colors w-[40px] h-[40px] flex items-center justify-center"
+              title="Delete"
+            >
+              <Icon name="trash" className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Text area */}
+          <div className="relative pb-2 px-[9px]">
+            <div className="flex items-start gap-2">
+              {user ? (
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button
+                      type="button"
+                      className="transition-transform"
+                    >
+                      {selectedEmoji ? (
+                        <span className="text-xl">{selectedEmoji}</span>
+                      ) : (
+                        <Icon name="emotion-smile" className="w-6 h-6 text-gray-500" />
+                      )}
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-40 p-3 bg-white border border-gray-200 shadow-lg" align="start">
+                    <div className="grid grid-cols-3 gap-2">
+                      {EMOJI_OPTIONS.map((emoji) => (
+                        <button
+                          key={emoji}
+                          type="button"
+                          onClick={() => setSelectedEmoji(emoji)}
+                          className={cn(
+                            'w-10 h-10 text-lg hover:bg-gray-100 rounded-md transition-all duration-200 flex items-center justify-center',
+                            selectedEmoji === emoji && 'bg-blue-100 border border-blue-300 shadow-sm'
+                          )}
+                        >
+                          {emoji}
+                        </button>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              ) : (
+                <button
+                  type="button"
+                  className="transition-transform"
+                  onClick={() => requireAuth(() => {})}
+                >
+                  <Icon name="emotion-smile" className="w-6 h-6 text-gray-500" />
+                </button>
               )}
+              <div className="flex-1">
+                <textarea
+                  {...register('content')}
+                  placeholder="How are you feeling today?"
+                  className="w-full min-h-[100px] p-0 border-none resize-none placeholder-gray-400 text-gray-700 focus:outline-none text-[14px] leading-relaxed"
+                  onClick={() => requireAuth(() => {})}
+                />
+                {errors.content && (
+                  <p className="text-sm text-red-600 mt-1">{errors.content.message}</p>
+                )}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Bottom toolbar */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <div className="flex items-center gap-1">
+          {/* Bottom toolbar */}
+          <div className="flex items-center justify-between pt-[6px] pl-[9px] pb-[10px] pr-[13px] border-t border-gray-100">
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => requireAuth(handleNotImplemented)}
+                className="p-2.5 text-gray-500 bg-black/5 rounded-[10px] transition-colors w-[30px] h-[30px] flex items-center justify-center"
+                title="Add attachment"
+              >
+                <Icon name="plus" className="w-[16px] h-[16px]" />
+              </button>
+              <button
+                type="button"
+                onClick={() => requireAuth(handleNotImplemented)}
+                className="p-2.5 text-gray-500 rounded-[10px] transition-colors w-[30px] h-[30px] flex items-center justify-center"
+                title="Voice recording"
+              >
+                <Icon name="mic" className="w-[16px] h-[16px]" />
+              </button>
+              <button
+                type="button"
+                onClick={() => requireAuth(handleNotImplemented)}
+                className="p-2.5 text-gray-500 rounded-[10px] transition-colors w-[30px] h-[30px] flex items-center justify-center"
+                title="Video camera"
+              >
+                <Icon name="video-camera" className="w-[16px] h-[16px]" />
+              </button>
+            </div>
+            
             <button
-              type="button"
-              onClick={() => requireAuth(handleNotImplemented)}
-              className="p-2.5 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors w-10 h-10 flex items-center justify-center"
-              title="Add attachment"
+              type="submit"
+              disabled={!content.trim() || !user || isSubmitting}
+              onClick={() => !user && requireAuth(() => {})}
+              className="w-6 h-6"
             >
-              <Icon name="plus" className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => requireAuth(handleNotImplemented)}
-              className="p-2.5 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors w-10 h-10 flex items-center justify-center"
-              title="Voice recording"
-            >
-              <Icon name="mic" className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => requireAuth(handleNotImplemented)}
-              className="p-2.5 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors w-10 h-10 flex items-center justify-center"
-              title="Video camera"
-            >
-              <Icon name="video-camera" className="w-4 h-4" />
+              {isSubmitting ? (
+                <div className="w-full h-full border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <Icon name="send" className='w-full h-full'/>
+              )}
             </button>
           </div>
-          
-          <button
-            type="submit"
-            disabled={!content.trim() || !user || isSubmitting}
-            onClick={() => !user && requireAuth(() => {})}
-            className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2.5 rounded-lg flex items-center justify-center transition-colors min-w-[44px] h-10"
-          >
-            {isSubmitting ? (
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            ) : (
-              <Icon name="send" className="w-4 h-4" />
-            )}
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

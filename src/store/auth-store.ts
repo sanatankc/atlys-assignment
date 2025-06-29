@@ -4,8 +4,8 @@ import type { AuthState, AuthCredentials, SignUpCredentials, User } from '@/type
 
 // Predefined test accounts
 const TEST_ACCOUNTS = [
-  { emailOrUsername: 'demo@example.com', password: 'password123' },
-  { emailOrUsername: 'test@user.com', password: 'testpass' },
+  { emailOrUsername: 'demo@example.com', password: 'password123', name: 'Demo User' },
+  { emailOrUsername: 'test@user.com', password: 'testpass', name: 'Test User' },
 ];
 
 export const useAuthStore = create<AuthState>()(
@@ -28,6 +28,7 @@ export const useAuthStore = create<AuthState>()(
           const user: User = {
             id: Math.random().toString(36).substr(2, 9),
             emailOrUsername: account.emailOrUsername,
+            name: account.name
           };
           set({ user, isLoading: false });
           return true;

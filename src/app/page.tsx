@@ -3,7 +3,7 @@ import { FeedClient } from '@/components/feed/feed-client';
 
 export default function HomePage() {
   return (
-    <main className="container mx-auto px-4 py-8 max-w-[568px]">
+    <main className="container mx-auto px-4 py-8 box-content max-w-[568px]">
       <FeedClient />
     </main>
   );

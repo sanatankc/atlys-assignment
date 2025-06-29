@@ -17,7 +17,7 @@ export function Header() {
   const isAuthPage = pathname.includes('signin') || pathname.includes('signup');
 
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
       <div className="w-full px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export function Header() {
                 {user ? (
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-gray-600">
-                      Welcome, {user.emailOrUsername}
+                      Welcome, {user.name || user.emailOrUsername}
                     </span>
                     <Button
                       variant="ghost"
