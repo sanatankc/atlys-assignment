@@ -17,7 +17,6 @@ export const useAuthStore = create<AuthState>()(
       login: async (credentials: AuthCredentials) => {
         set({ isLoading: true });
         
-        // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 1000));
         
         const account = TEST_ACCOUNTS.find(
@@ -41,10 +40,8 @@ export const useAuthStore = create<AuthState>()(
       register: async (credentials: SignUpCredentials) => {
         set({ isLoading: true });
         
-        // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        // Check if email already exists
         const existingAccount = TEST_ACCOUNTS.find(acc => acc.emailOrUsername === credentials.emailOrUsername);
         if (existingAccount) {
           set({ isLoading: false });
@@ -53,7 +50,7 @@ export const useAuthStore = create<AuthState>()(
         
         const user: User = {
           id: Math.random().toString(36).substr(2, 9),
-          emailOrUsername: credentials.emailOrUsername,
+          emailOrUsername: credentials.emailOrUsername
         };
         
         set({ user, isLoading: false });

@@ -68,6 +68,7 @@ export function SignInForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <Input
           label="Email or username"
+          autoFocus={true}
           placeholder="Enter your email or username"
           {...register('emailOrUsername')}
           error={errors.emailOrUsername?.message}

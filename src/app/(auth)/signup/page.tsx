@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function SignUpPage() {
   return (
     <div className='w-full flex flex-row items-center justify-center'>
-      <SignUpForm />
+        <SignUpForm />
     </div>
   );
 }

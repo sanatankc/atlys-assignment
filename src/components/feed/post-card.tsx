@@ -86,7 +86,7 @@ export function PostCard({ post, index }: PostCardProps) {
           </div>
         </div>
         <div className="flex items-start gap-[13px] pt-[4px]">
-          <div className='rounded-full p-[5px] px-[9px] bg-[#F2F2F2]'>
+          <div className='rounded-full p-[2px] px-[6px] bg-[#F2F2F2]'>
             {post.emoji && (
               <span className="text-xl">{post.emoji}</span>
             )}

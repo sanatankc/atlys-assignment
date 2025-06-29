@@ -6,7 +6,7 @@ import { Modal } from '@/components/ui/modal';
 import { SignInForm } from '@/components/forms/signin-form';
 import { SignUpForm } from '@/components/forms/signup-form';
 import { useUIStore } from '@/store/ui-store';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export function AuthModal() {
@@ -42,7 +42,25 @@ export function AuthModal() {
         )}
         onClick={(e) => e.stopPropagation()}
       >
-      {authModal.mode === 'signin' ? <SignInForm /> : <SignUpForm />}
+        <motion.div 
+          layout
+          className="overflow-hidden"
+          transition={{
+            layout: { duration: 0.3, ease: "easeInOut" },
+          }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={authModal.mode}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              {authModal.mode === 'signin' ? <SignInForm /> : <SignUpForm />}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
       </motion.div>
     </Modal>
   );

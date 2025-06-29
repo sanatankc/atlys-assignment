@@ -1,7 +1,7 @@
 export interface User {
   id: string;
   emailOrUsername: string;
-  name: string | null;
+  name?: string | null;
   avatar?: string;
 }
 

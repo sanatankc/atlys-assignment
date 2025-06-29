@@ -2,7 +2,6 @@ export default function Loading() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl">
       <div className="space-y-8">
-        {/* Post editor skeleton */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <div className="animate-pulse space-y-4">
             <div className="h-4 bg-gray-200 rounded w-1/4"></div>
@@ -18,7 +17,6 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* Post cards skeleton */}
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
             <div className="animate-pulse">
