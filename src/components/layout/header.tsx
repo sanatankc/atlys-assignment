@@ -6,9 +6,7 @@ import { usePathname } from 'next/navigation';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/store/auth-store';
-import loginIcon from '@/icons/login.svg';
-import logoIcon from '@/icons/logo.svg';
-import Image from 'next/image';
+import { Icon } from '@/components/ui/icon';
 
 export function Header() {
   const pathname = usePathname();
@@ -22,7 +20,7 @@ export function Header() {
       <div className="w-full px-[40px] py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src={logoIcon} alt="Logo" width={34} height={34} />
+            <Icon name="logo" size={34} />
             <span className="text-[16px] font-bold text-black/80">foo-rum</span>
           </Link>
 
@@ -37,16 +35,19 @@ export function Header() {
               <>
                 {user ? (
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-black font-medium">
                       Welcome, {user.name || user.emailOrUsername}
                     </span>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={logout}
-                      className="text-gray-500 hover:text-gray-700"
+                      className="text-[#D83B3B] bg-[#FF0000]/15 hover:bg-red-100"
                     >
-                      <LogOut className="h-4 w-4" />
+                      <div className="flex items-center gap-2">
+                        Logout
+                        <LogOut className="h-4 w-4" />
+                      </div>
                     </Button>
                   </div>
                 ) : (
@@ -54,9 +55,7 @@ export function Header() {
                     <Link href="/signin">
                       <Button variant="ghost" className="text-black flex flex-row items-center gap-[7px]">
                         Login
-                        <div>
-                          <Image src={loginIcon} alt="Login" width={20} height={20} />
-                        </div>
+                        <Icon name="login" size={20} />
                       </Button>
                     </Link>
                   </div>

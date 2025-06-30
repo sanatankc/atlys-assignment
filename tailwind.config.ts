@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -55,7 +54,8 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addUtilities }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function({ addUtilities }: any) {
       addUtilities({
         '.scrollbar-hide': {
           '-ms-overflow-style': 'none',

@@ -52,7 +52,7 @@ const INITIAL_POSTS: Post[] = [
 
 export const usePostsStore = create<PostsState>()(
   persist(
-    (set, get) => ({
+    set => ({
       posts: INITIAL_POSTS,
       isSubmitting: false,
 
@@ -65,7 +65,6 @@ export const usePostsStore = create<PostsState>()(
           emoji = emojis[Math.floor(Math.random() * emojis.length)];
         }
         
-        // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 500));
         
         const newPost: Post = {

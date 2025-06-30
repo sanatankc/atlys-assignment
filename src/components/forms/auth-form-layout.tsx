@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import loginIcon from '@/icons/login.svg';
+import { Icon } from '@/components/ui/icon';
 
 interface AuthFormLayoutProps {
   title: string;
@@ -18,7 +17,7 @@ export function AuthFormLayout({ title, subtitle, children, footer }: AuthFormLa
         <div className='space-y-[65px] pt-[30px] pb-[57px] px-[50px]'>
           <div className="text-center ">
             <div className="mx-auto w-[53px] h-[53px] bg-[#F2F2F2] rounded-full flex items-center justify-center mb-5 border border-[#E0E0E0]">
-              <Image src={loginIcon} alt="Login" width={24} height={24} className='relative left-[-1px]'/>
+              <Icon name="login" size={24} className='relative left-[-1px]' />
             </div>
             <h1 className="text-[20px] font-bold text-black mb-1">{title}</h1>
             <p className="text-black/50 font-normal text-sm">
