@@ -1,8 +1,10 @@
+import type { StaticImageData } from 'next/image';
+
 export interface User {
   id: string;
   emailOrUsername: string;
   name?: string | null;
-  avatar?: string;
+  avatar?: string | StaticImageData;
 }
 
 export interface Post {

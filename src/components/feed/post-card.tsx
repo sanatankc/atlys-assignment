@@ -7,6 +7,7 @@ import { useUIStore } from '@/store/ui-store';
 import type { Post } from '@/types';
 import { Icon } from '@/components/ui/icon';
 import { useTimeAgo } from '@/hooks/use-time-ago';
+import Image from 'next/image';
 
 interface PostCardProps {
   post: Post;
@@ -40,12 +41,22 @@ export function PostCard({ post, index }: PostCardProps) {
     >
       <div className='bg-white border border-black/10 shadow-[0_4px_9px_rgba(0,0,0,0.05)] rounded-[18px] p-[22px] pt-[13px] pl-[13px]'>
         <div className="flex items-start gap-[10px]">
-          <div className="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-[7px]">
-            <span className="text-sm font-medium text-gray-600">
-              {post.author.emailOrUsername.charAt(0).toUpperCase()}
-            </span>
-          </div>
-          
+          {post.author.avatar ? (
+            <Image 
+              src={post.author.avatar} 
+              alt={post.author.name || post.author.emailOrUsername} 
+              width={40} 
+              height={40} 
+              className="rounded-[7px] object-cover object-center w-[37px] h-[37px]"
+              priority
+            />
+          ) : (
+            <div className="w-10 h-10 bg-gray-200 flex items-center justify-center rounded-[7px]">
+              <span className="text-sm font-medium text-gray-600">
+                {post.author.emailOrUsername.charAt(0).toUpperCase()}
+              </span>
+            </div>
+          )}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
               <div>
