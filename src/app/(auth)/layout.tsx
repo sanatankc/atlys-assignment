@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthGuard } from '@/components/providers/auth-guard';
+import { AuthGuardClient } from '@/components/providers/auth-guard-client';
 
 export default function AuthLayout({
   children,
@@ -7,12 +7,12 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AuthGuard>
-    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4">
-      <div className="w-full">
-        {children}
+    <AuthGuardClient>
+      <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4">
+        <div className="w-full">
+          {children}
+        </div>
       </div>
-    </div>
-    </AuthGuard>
+    </AuthGuardClient>
   );
 }

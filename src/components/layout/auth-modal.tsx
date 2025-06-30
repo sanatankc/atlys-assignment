@@ -12,7 +12,13 @@ import { cn } from '@/lib/utils';
 export function AuthModal() {
   const { authModal, closeAuthModal } = useUIStore();
   const pathname = usePathname();
-  
+
+  // we could have rendered the modal only on home page,
+  // but assuming we add more pages later on
+  // I added these checks to specifically close them on 
+  // auth pages and render it globally, instead of just
+  // homepage
+
   // Close modal when navigating to auth pages
   React.useEffect(() => {
     const isOnAuthPage = pathname.includes('/signin') || pathname.includes('/signup');

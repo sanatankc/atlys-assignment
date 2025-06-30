@@ -139,7 +139,6 @@ export function PostEditor() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
     watch,
   } = useForm<PostForm>({
@@ -236,9 +235,6 @@ export function PostEditor() {
                   className="w-full min-h-[100px] p-0 border-none resize-none placeholder-gray-400 text-gray-700 focus:outline-none text-[14px] leading-relaxed"
                   onClick={() => requireAuth(() => {})}
                 />
-                {errors.content && (
-                  <p className="text-sm text-red-600 mt-1">{errors.content.message}</p>
-                )}
               </div>
             </div>
           </div>

@@ -24,6 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="../icons/logo.svg" sizes="any" />
       <body className={`${inter.className} bg-gray-50`}>
         <Header />
         {children}

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useAuthStore } from '@/store/auth-store';
 import { useUIStore } from '@/store/ui-store';
 import type { Post } from '@/types';
-import { useRouter, usePathname } from 'next/navigation';
 import { Icon } from '@/components/ui/icon';
 import { useTimeAgo } from '@/hooks/use-time-ago';
 
@@ -17,19 +16,11 @@ interface PostCardProps {
 export function PostCard({ post, index }: PostCardProps) {
   const user = useAuthStore(state => state.user);
   const openAuthModal = useUIStore(state => state.openAuthModal);
-  const router = useRouter();
-  const pathname = usePathname();
   const timeAgo = useTimeAgo(post.timestamp);
 
   const requireAuth = (action: () => void) => {
     if (!user) {
-      // If already on auth page, don't open modal, just redirect
-      const isOnAuthPage = pathname.includes('/signin') || pathname.includes('/signup');
-      if (isOnAuthPage) {
-        router.push('/signin');
-      } else {
-        openAuthModal('signin');
-      }
+      openAuthModal('signin');
       return;
     }
     action();

@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-// Import all SVG files from the icons folder
 import logoIcon from '@/icons/logo.svg';
 import trashIcon from '@/icons/trash.svg';
 import scriptIcon from '@/icons/script.svg';
@@ -25,7 +24,6 @@ import heartIcon from '@/icons/heart.svg';
 import loginIcon from '@/icons/login.svg';
 import postIcon from '@/icons/post.svg';
 
-// Map icon names to their imports
 const iconFiles: Record<string, string> = {
   'logo': logoIcon,
   'trash': trashIcon,

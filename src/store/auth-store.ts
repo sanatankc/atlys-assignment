@@ -8,11 +8,17 @@ const TEST_ACCOUNTS = [
   { emailOrUsername: 'test@user.com', password: 'testpass', name: 'Test User' },
 ];
 
+
+
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       user: null,
       isLoading: false,
+
+      setUser: (user: User | null) => {
+        set({ user });
+      },
 
       login: async (credentials: AuthCredentials) => {
         set({ isLoading: true });
@@ -29,6 +35,7 @@ export const useAuthStore = create<AuthState>()(
             emailOrUsername: account.emailOrUsername,
             name: account.name
           };
+          
           set({ user, isLoading: false });
           return true;
         }
@@ -58,8 +65,7 @@ export const useAuthStore = create<AuthState>()(
       },
 
       logout: () => {
-        set({ 
-          user: null });
+        set({ user: null });
       },
     }),
     {

@@ -25,6 +25,7 @@ export interface SignUpCredentials extends AuthCredentials {
 export interface AuthState {
   user: User | null;
   isLoading: boolean;
+  setUser: (user: User | null) => void;
   login: (credentials: AuthCredentials) => Promise<boolean>;
   register: (credentials: SignUpCredentials) => Promise<boolean>;
   logout: () => void;
