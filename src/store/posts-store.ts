@@ -2,17 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { PostsState, Post } from '@/types';
 import { useAuthStore } from './auth-store';
-
-
-export const emojis = [
-  '🤔',
-  '👍',
-  '💀',
-  '🤯',
-  '🤩',
-  '🤗',
-  '🤑',
-]
+import { EMOJI_OPTIONS } from '@/lib/constants';
 
 const INITIAL_POSTS: Post[] = [
   {
@@ -62,7 +52,7 @@ export const usePostsStore = create<PostsState>()(
 
         set({ isSubmitting: true });
         if (!emoji) {
-          emoji = emojis[Math.floor(Math.random() * emojis.length)];
+          emoji = EMOJI_OPTIONS[Math.floor(Math.random() * EMOJI_OPTIONS.length)];
         }
         
         await new Promise(resolve => setTimeout(resolve, 500));

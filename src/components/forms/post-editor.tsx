@@ -11,12 +11,12 @@ import { postSchema } from '@/lib/validations';
 import { cn } from '@/lib/utils';
 import { useRouter, usePathname } from 'next/navigation';
 import { Icon } from '@/components/ui/icon';
+import { Loader2 } from 'lucide-react';
+import { EMOJI_OPTIONS } from '@/lib/constants';
 
 interface PostForm {
   content: string;
 }
-
-const EMOJI_OPTIONS = ['💭', '🤔', '👍', '😍', '😢', '😡', '💀'];
 
 interface EditorToolbarProps {
   onFormatAction: () => void;
@@ -201,8 +201,8 @@ export function PostEditor() {
                       )}
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-40 p-3 bg-white border border-gray-200 shadow-lg" align="start">
-                    <div className="grid grid-cols-3 gap-2">
+                  <PopoverContent className="w-[200px] p-3 bg-white border border-gray-200 shadow-lg" align="start">
+                    <div className="grid grid-cols-4 gap-1">
                       {EMOJI_OPTIONS.map((emoji) => (
                         <button
                           key={emoji}
@@ -275,7 +275,7 @@ export function PostEditor() {
               className="w-6 h-6"
             >
               {isSubmitting ? (
-                <div className="w-full h-full border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <Loader2 className="w-full h-full animate-spin text-[#5057ea]" />
               ) : (
                 <Icon name="post" className={cn('w-full h-full transition-all duration-200', isSubmitDisabled && 'grayscale')}/>
               )}
