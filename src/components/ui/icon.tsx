@@ -22,6 +22,7 @@ import sendIcon from '@/icons/send.svg';
 import commentIcon from '@/icons/comment.svg';
 import heartIcon from '@/icons/heart.svg';
 import loginIcon from '@/icons/login.svg';
+import logoutIcon from '@/icons/logout.svg';
 import postIcon from '@/icons/post.svg';
 
 const iconFiles: Record<string, string> = {
@@ -44,6 +45,7 @@ const iconFiles: Record<string, string> = {
   'comment': commentIcon,
   'heart': heartIcon,
   'login': loginIcon,
+  'logout': logoutIcon,
 };
 
 

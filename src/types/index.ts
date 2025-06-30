@@ -24,9 +24,16 @@ export interface SignUpCredentials extends AuthCredentials {
   confirmPassword: string;
 }
 
+export interface StoredAccount {
+  emailOrUsername: string;
+  password: string;
+  name: string;
+}
+
 export interface AuthState {
   user: User | null;
   isLoading: boolean;
+  accounts: StoredAccount[];
   setUser: (user: User | null) => void;
   login: (credentials: AuthCredentials) => Promise<boolean>;
   register: (credentials: SignUpCredentials) => Promise<boolean>;

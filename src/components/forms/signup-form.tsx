@@ -31,13 +31,17 @@ export function SignUpForm() {
   });
 
   const onSubmit = async (data: SignUpCredentials) => {
-    const success = await register(data);
-    
-    if (success) {
-      closeAuthModal();
-      router.push('/');
-    } else {
-      setError('root', { message: 'Account with this email already exists' });
+    try {
+      const success = await register(data);
+      
+      if (success) {
+        closeAuthModal();
+        router.push('/');
+      }
+    } catch (error) {
+      setError('root', { 
+        message: error instanceof Error ? error.message : 'Registration failed. Please try again.' 
+      });
     }
   };
 

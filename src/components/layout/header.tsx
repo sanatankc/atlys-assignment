@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/store/auth-store';
 import { Icon } from '@/components/ui/icon';
@@ -38,7 +37,11 @@ export function Header() {
                     <span className="text-sm text-black font-medium max-md:hidden">
                       Welcome, {user.name || user.emailOrUsername}
                     </span>
-                    <Button
+                    <Button onClick={logout} variant="ghost" className="text-[#D83B3B] bg-[#FF0000]/15 hover:bg-red-100 flex flex-row items-center gap-[7px]">
+                      Logout
+                      <Icon name="logout" size={20} />
+                    </Button>
+                    {/* <Button
                       variant="ghost"
                       size="sm"
                       onClick={logout}
@@ -48,7 +51,7 @@ export function Header() {
                         Logout
                         <LogOut className="h-4 w-4" />
                       </div>
-                    </Button>
+                    </Button> */}
                   </div>
                 ) : (
                   <div className="flex items-center gap-2">

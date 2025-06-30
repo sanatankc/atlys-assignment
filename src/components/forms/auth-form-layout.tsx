@@ -12,9 +12,9 @@ interface AuthFormLayoutProps {
 
 export function AuthFormLayout({ title, subtitle, children, footer }: AuthFormLayoutProps) {
   return (
-    <div className='bg-[#EBEBEB] rounded-[30px] p-[11px] w-full max-w-[498px]'>
+    <div className='bg-[#EBEBEB] rounded-[30px] p-[11px] max-md:w-full w-[498px]'>
       <div className='bg-white rounded-[21px]'>
-        <div className='space-y-[65px] pt-[30px] pb-[57px] px-[50px]'>
+        <div className='space-y-[65px] pt-[30px] pb-[57px] px-[50px] max-md:px-[20px]'>
           <div className="text-center ">
             <div className="mx-auto w-[53px] h-[53px] bg-[#F2F2F2] rounded-full flex items-center justify-center mb-5 border border-[#E0E0E0]">
               <Icon name="login" size={24} className='relative left-[-1px]' />
