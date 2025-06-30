@@ -38,7 +38,7 @@ export function AuthModal() {
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: 'spring', duration: 0.3 }}
         className={cn(
-          'pointer-events-auto w-fit',
+          'pointer-events-auto w-fit px-2',
         )}
         onClick={(e) => e.stopPropagation()}
       >

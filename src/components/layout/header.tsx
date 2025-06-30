@@ -17,7 +17,7 @@ export function Header() {
 
   return (
     <header className="bg-white sticky top-0 z-10">
-      <div className="w-full px-[40px] py-4">
+      <div className="w-full px-[40px] max-md:px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Icon name="logo" size={34} />
@@ -35,7 +35,7 @@ export function Header() {
               <>
                 {user ? (
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-black font-medium">
+                    <span className="text-sm text-black font-medium max-md:hidden">
                       Welcome, {user.name || user.emailOrUsername}
                     </span>
                     <Button

@@ -25,7 +25,7 @@ interface EditorToolbarProps {
 
 function EditorToolbar({ onFormatAction, onDelete }: EditorToolbarProps) {
   return (
-    <div className="flex items-center justify-between pb-4 border-gray-100 p-[9px]">
+    <div className="flex items-center justify-between pb-4 border-gray-100 p-[9px] overflow-x-auto gap-2">
       <div className="flex items-center p-1 h-full bg-[rgba(0,0,0,0.03)] rounded-[10px]">
         {/* Paragraph dropdown */}
         <div className="relative mr-[25px]">
@@ -117,7 +117,7 @@ function EditorToolbar({ onFormatAction, onDelete }: EditorToolbarProps) {
       <button
         type="button"
         onClick={onDelete}
-        className="text-[#D83B3B] bg-[#FF0000]/15 hover:bg-red-100 rounded-[10px] transition-colors w-[40px] h-[40px] flex items-center justify-center"
+        className="text-[#D83B3B] bg-[#FF0000]/15 hover:bg-red-100 flex-shrink-0 rounded-[10px] transition-colors w-[40px] h-[40px] flex items-center justify-center"
         title="Delete"
       >
         <Icon name="trash" className="w-4 h-4" />

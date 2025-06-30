@@ -12,7 +12,7 @@ interface AuthFormLayoutProps {
 
 export function AuthFormLayout({ title, subtitle, children, footer }: AuthFormLayoutProps) {
   return (
-    <div className='bg-[#EBEBEB] rounded-[30px] p-[11px] w-[498px]'>
+    <div className='bg-[#EBEBEB] rounded-[30px] p-[11px] w-full max-w-[498px]'>
       <div className='bg-white rounded-[21px]'>
         <div className='space-y-[65px] pt-[30px] pb-[57px] px-[50px]'>
           <div className="text-center ">
